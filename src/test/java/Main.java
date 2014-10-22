@@ -1,28 +1,28 @@
 import net.magellanea.sudoku.solver.SudokuPuzzle;
+import org.junit.Test;
 
 import java.io.File;
 import java.net.URISyntaxException;
+
+import static org.junit.Assert.assertArrayEquals;
 
 /**
  * Created by yakoub on 22/10/14.
  */
 public class Main {
 
+    @Test
     public void testSudokuSolver() throws URISyntaxException {
-        SudokuPuzzle problem = new SudokuPuzzle(
-                new File(getClass().getResource("/testcase1problem").toURI()));
-        SudokuPuzzle solution = new SudokuPuzzle(
-                new File(getClass().getResource("/testcase1solution").toURI()));
-        problem.solve();
-        int [][] solutionGrid = solution.getSolution();
-        int [][] solvedGrid = problem.getSolution();
-        for(int i=0;i<9;i++)
-            for(int j=0;j<9;j++)
-                assert(solutionGrid[i][j]==solvedGrid[i][j]);
+        // The number of test cases puzzles
+        for(int k=1;k<=2;k++) {
+            SudokuPuzzle problem = new SudokuPuzzle(
+                    new File(getClass().getResource((String.format("/testcase%dproblem", k))).toURI()));
+            SudokuPuzzle solution = new SudokuPuzzle(
+                    new File(getClass().getResource((String.format("/testcase%dsolution",k))).toURI()));
+            problem.solve();
+            int[][] solutionGrid = solution.getSolution();
+            int[][] solvedGrid = problem.getSolution();
+            assertArrayEquals(solutionGrid, solvedGrid);
+        }
     }
-    public static void main(String args[]) throws URISyntaxException {
-        Main m = new Main();
-        m.testSudokuSolver();
-    }
-
 }
