@@ -14,7 +14,7 @@ public class Main {
     @Test
     public void testSudokuSolver() throws URISyntaxException {
         // The number of test cases puzzles
-        for(int k=1;k<=2;k++) {
+        for(int k=1;k<=3;k++) {
             SudokuPuzzle problem = new SudokuPuzzle(
                     new File(getClass().getResource((String.format("/testcase%dproblem", k))).toURI()));
             SudokuPuzzle solution = new SudokuPuzzle(
