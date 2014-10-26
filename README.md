@@ -1,6 +1,6 @@
 **Sudoku Puzzle solver**
 
-This is a backtracking recursive implementation of the sudoku puzzle solver, to be able to use it, create a (csv) file containing the problem for example:
+This is a recursive implementation of a backtracking based sudoku puzzle solver, to be able to use it, create a (csv) file containing the problem for example:
 
 ```
 0,3,5,2,9,0,8,6,4
