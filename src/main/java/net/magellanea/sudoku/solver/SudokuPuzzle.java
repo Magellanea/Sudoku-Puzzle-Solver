@@ -62,6 +62,7 @@ public class SudokuPuzzle {
      * @return whether a solution can be found or not
      */
     private boolean solve(int row, int column) {
+        // Get the location of the next zero.
         assert ((row >= 0) && (row < 9));
         assert ((column >= 0) && (column < 9));
         int nextMissingElementRow = -1;
@@ -82,6 +83,7 @@ public class SudokuPuzzle {
 
         if (nextMissingElementRow == -1)
             return true;
+        // Get the row, column and Block of that element.
         int nextMissingBlock = (nextMissingElementColumn / 3) + (nextMissingElementRow / 3) * 3;
         int nextColumn = ((nextMissingElementColumn + 1) % 9);
         int nextRow = (nextMissingElementColumn == 8 ? (nextMissingElementRow + 1) % 9 : nextMissingElementRow);

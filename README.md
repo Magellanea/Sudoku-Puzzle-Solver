@@ -24,7 +24,10 @@ Now call the ```solve``` method to be able to solve the puzzle
 
 ```
 puzzle.solve();
+// To get the solution as an array.
 int[][] grid = puzzle.getSolution();
+// To export the result to a file
+puzzle.export(new File("/path/to/puzzle_sol.csv"));
 ```
 
 note that calling ```getSolution()``` before ```solve``` will return the input matrix.
